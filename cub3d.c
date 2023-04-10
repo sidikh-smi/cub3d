@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:32 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/09 13:50:23 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/10 09:28:24 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,16 @@ void	check_walls(t_vars *d)
 
 	s = d->j;
 	size = d->size;
+	i = 0;
 	while (d->map[s])
 	{
 		i = 0;
-		while (d->map[s][i] == ' ')
+		while (d->map[s][i] == ' ' || d->map[s][i] == '\t')
 			i++;
-		if (d->map[s][i] != '1' || d->map[s][ft_strlen(d->map[s]) - 1] != '1')
+		//printf(">>%c\n", d->map[s][i]);
+		if (d->map[s][i] != '1' || (d->map[s][ft_strlen(d->map[s]) - 1] != '1'
+			&& d->map[s][ft_strlen(d->map[s]) - 1] != ' '
+			&& d->map[s][ft_strlen(d->map[s]) - 1] != '\t'))
 			error("Suround WAALLLL!!!!");
 		s++;
 	}
@@ -83,6 +87,7 @@ void	det_error(char *s, t_vars *d)
 		error("fd invalid");
 	check(d, fd);
 	check_walls(d);
+	ft_check_map(d);
 }
 
 int	main(int argc, char **argv)
@@ -98,4 +103,8 @@ int	main(int argc, char **argv)
 		trans_color(d);
 		position_player(d);
 	}
+	// printf("SO %s\n", d->path_so);
+	// printf("NO %s\n", d->path_no);
+	// printf("WE %s\n", d->path_we);
+	// printf("EA %s\n", d->path_ea);
 }

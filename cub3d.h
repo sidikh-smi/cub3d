@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:59 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/09 13:50:57 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/09 18:15:35 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void	position_player(t_vars *p);
 void	trans_color(t_vars *p);
 void	check_colors(t_vars *s, char *a, char c);
 void	free_it(char **p);
+void	ft_check_map(t_vars *s);
 
 #endif

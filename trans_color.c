@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 12:35:52 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/09 13:32:09 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/10 09:40:53 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,26 @@
 
 void	colors_f(char **p, t_vars *s)
 {
-	s->f_r = ft_atoi(p[0]);
-	s->f_g = ft_atoi(p[1]);
-	s->f_b = ft_atoi(p[2]);
+	if (ft_atoi(p[0]) != -1)
+		s->f_r = ft_atoi(p[0]);
+	if (ft_atoi(p[1]) != -1)
+		s->f_g = ft_atoi(p[1]);
+	if (ft_atoi(p[2]) != -1)
+		s->f_b = ft_atoi(p[2]);
+	else
+		error("NUMber color\n");
 }
 
 void	colors_c(char **p, t_vars *s)
 {
-	s->c_r = ft_atoi(p[0]);
-	s->c_g = ft_atoi(p[1]);
-	s->c_b = ft_atoi(p[2]);
+	if (ft_atoi(p[0]) != -1)
+		s->c_r = ft_atoi(p[0]);
+	if (ft_atoi(p[1]) != -1)
+		s->c_g = ft_atoi(p[1]);
+	if (ft_atoi(p[2]) != -1)
+		s->c_b = ft_atoi(p[2]);
+	else
+		error("NUMber color\n");
 }
 
 char	**ft_syntax(char *value)
