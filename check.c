@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:55 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/09 18:12:42 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:54:32 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	skip_space(int j, char *c)
 {
 	while (c[j] && (c[j] == ' ' || c[j] == '\t'))
 			j++;
+	if (c[j] == '\0')
+		error("Need a path\n");
 	return (j);
 }
 
@@ -85,12 +87,12 @@ void	textures(t_vars *s)
 
 	t = ft_calloc(4, 4);
 	q = 0;
-	while (q < 6)
-	{	
+	while (q < 6 && s->map[q])
+	{
 		i = 0;
 		while (i != -1 && s->map[q][i])
 		{
-			if (s->map[q][i] == ' ' || s->map[q][i] == '\t')
+			if (s->map[q][i] == ' ' || s->map[q][i] == '\t' )
 			{
 				i++;
 				continue ;
@@ -100,34 +102,72 @@ void	textures(t_vars *s)
 		}
 		q++;
 	}
+	free(t);
 	s->j = q;
+}
+
+int	new_line_map(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+		i++;
+	if (str[i] == '1' || str[i] == '0')
+	{
+		return (1);
+	}
+	return (0);
+}
+
+void check_line(char *h)
+{
+	if (h[0] == '\n' || (ft_strlen(h) == 2 && h[1] == '\n'))
+		error("Error\n");
+
 }
 
 void	check(t_vars *s, int fd)
 {
 	char	*h;
 	char	*e;
-	int		i;
 	int		l;
+	int		c;
+	int		start_map;
 
 	l = 0;
+	c = 0;
 	s->map = NULL;
 	e = NULL;
 	h = get_next_line(fd);
+	start_map = 0;
 	empty_map(h, s);
 	while (h)
 	{
-		e = ft_strjoin(e, h);
+		if (!start_map)
+		{
+			if (new_line_map(h))
+			{
+				check_line(h);
+				start_map = 1;
+			}
+			e = ft_strjoin(e, h);
+		}
+		else
+		{
+			check_line(h);
+			e = ft_strjoin(e, h);
+		}
 		free (h);
 		h = get_next_line(fd);
 	}
-	i = ft_strlen(e);
 	s->map = ft_split(e, '\n');
 	while (s->map[l])
 		l++;
 	s->size = l;
 	textures(s);
 	components_cub(s);
+	check_p(s);
 	free(e);
 	close(fd);
 }

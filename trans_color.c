@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 12:35:52 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 09:40:53 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:06:04 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ char	**ft_syntax(char *value)
 	if (c != 2)
 		return (NULL);
 	p = ft_split(value, ',');
+	i = 0;
+	while (p[i])
+	{
+			i++;
+	}
+	if (i != 3)
+		error("COLOR\n");
 	return (p);
 }
 
@@ -78,6 +85,7 @@ void	check_colors(t_vars *s, char *a, char c)
 			error("COLOR\n");
 		i++;
 	}
+	printf(">> %d\n", i);
 	if (c == 'F')
 		colors_f(p, s);
 	else if (c == 'C')

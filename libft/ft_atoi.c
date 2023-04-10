@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 22:51:29 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 09:39:27 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:04:15 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	convert_num(const char *s, int isneg)
 				return (0);
 		}
 	}
-	if (s[i] != '\0' && (!ft_isdigit(s[i]) || (s[i] != ' ' || s[i] != '\t')))
+	if (s[i] != '\0' && (!ft_isdigit(s[i]) && (s[i] != ' ' && s[i] != '\t')))
 		return (-1);
 	return (nbr);
 }
@@ -49,6 +49,8 @@ int	ft_atoi(const char *str)
 	while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
 			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
 		i++;
+	if (!str[i])
+		return (-1);
 	if (str[i] == '-')
 	{
 		isneg = 1;

@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:59 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/09 18:15:35 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:08:06 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_vars{
 	int		color_f;
 	int		x;
 	int		y;
+	unsigned long		max_lenght;
 }	t_vars;
 
 int		isber(char *s);
@@ -70,5 +71,9 @@ void	trans_color(t_vars *p);
 void	check_colors(t_vars *s, char *a, char c);
 void	free_it(char **p);
 void	ft_check_map(t_vars *s);
+int		new_line_map(char *e);
+void	check_p(t_vars *s);
+//void	fill_map(char *h, char *e, int start_map);
+void	lenght_line(t_vars *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:32 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 09:28:24 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:07:15 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	check_walls(t_vars *d)
 		i = 0;
 		while (d->map[s][i] == ' ' || d->map[s][i] == '\t')
 			i++;
-		//printf(">>%c\n", d->map[s][i]);
 		if (d->map[s][i] != '1' || (d->map[s][ft_strlen(d->map[s]) - 1] != '1'
 			&& d->map[s][ft_strlen(d->map[s]) - 1] != ' '
 			&& d->map[s][ft_strlen(d->map[s]) - 1] != '\t'))
@@ -102,9 +101,7 @@ int	main(int argc, char **argv)
 		det_error(argv[1], d);
 		trans_color(d);
 		position_player(d);
+		lenght_line(d);
 	}
-	// printf("SO %s\n", d->path_so);
-	// printf("NO %s\n", d->path_no);
-	// printf("WE %s\n", d->path_we);
-	// printf("EA %s\n", d->path_ea);
+	printf(">> %s\n", d->path_ea);
 }

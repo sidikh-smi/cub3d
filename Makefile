@@ -6,11 +6,11 @@
 #    By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 14:12:09 by skhaliff          #+#    #+#              #
-#    Updated: 2023/04/10 09:37:41 by skhaliff         ###   ########.fr        #
+#    Updated: 2023/04/10 20:49:38 by skhaliff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS    = cub3d.c error.c get_next_line.c get_next_line_utils.c check.c position_p.c trans_color.c free_it.c components_cub.c check_map.c
+SRCS    = cub3d.c error.c get_next_line.c get_next_line_utils.c check.c position_p.c trans_color.c free_it.c components_cub.c check_map.c 
 NAME    = cub3D
 LBFT	= libft/libft.a
 CC		= cc -g
