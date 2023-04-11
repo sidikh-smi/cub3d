@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:14:57 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 20:46:37 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/11 13:26:25 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,30 @@ int	check_char(char c)
 		|| c == 'N' || c == 'W' || c == 'E')
 		return (1);
 	return (0);
+}
+
+void	player_check(t_vars *s)
+{
+	int	i;
+	int	q;
+
+	i = s->j + 1;
+	while (s->map[i])
+	{
+		q = 0;
+		while (s->map[i][q])
+		{
+			if (s->map[i][q] == 'N' || s->map[i][q] == 'S'
+				|| s->map[i][q] == 'W' || s->map[i][q] == 'E')
+			{
+				if (s->map[i][q - 1] == ' ' || s->map[i][q + 1] == ' '
+					|| s->map[i + 1][q] == ' ' || s->map[i - 1][q] == ' ')
+					error("Player\n");
+			}
+			q++;
+		}
+		i++;
+	}
 }
 
 void	ft_check_map(t_vars *s)

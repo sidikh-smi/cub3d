@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:41:56 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 21:08:23 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:26:49 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	lenght_line(t_vars *s)
 			s->max_lenght = ft_strlen(s->map[i]);
 		i++;
 	}
-	printf("%lu\n", s->max_lenght);
 }
 
 void	check_p(t_vars *s)

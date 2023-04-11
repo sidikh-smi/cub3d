@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:32 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 21:07:15 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:19:50 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	isber(char *s)
 	i = ft_strlen(s);
 	while (i > 0)
 	{
-		if (s[i] == '.' )
+		if (s[i] == '.')
 			return (i);
 		i--;
 	}
@@ -87,6 +87,7 @@ void	det_error(char *s, t_vars *d)
 	check(d, fd);
 	check_walls(d);
 	ft_check_map(d);
+	player_check(d);
 }
 
 int	main(int argc, char **argv)
@@ -98,10 +99,10 @@ int	main(int argc, char **argv)
 		error("ERROR");
 	else
 	{
+		init(d);
 		det_error(argv[1], d);
 		trans_color(d);
 		position_player(d);
 		lenght_line(d);
 	}
-	printf(">> %s\n", d->path_ea);
 }

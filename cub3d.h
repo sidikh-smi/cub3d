@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:59 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 21:08:06 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/11 13:55:42 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,26 @@ typedef struct s_color{
 }	t_color;
 
 typedef struct s_vars{
-	char	**map;
-	int		j;
-	int		size;
-	double	position;
-	char	*path_so;
-	char	*path_no;
-	char	*path_we;
-	char	*path_ea;
-	t_color	*c_color;
-	t_color	*f_color;
-	int		c_r;
-	int		c_g;
-	int		c_b;
-	int		f_r;
-	int		f_g;
-	int		f_b;
-	int		color_c;
-	int		color_f;
-	int		x;
-	int		y;
+	char				**map;
+	int					j;
+	int					size;
+	double				position;
+	char				*path_so;
+	char				*path_no;
+	char				*path_we;
+	char				*path_ea;
+	t_color				*c_color;
+	t_color				*f_color;
+	int					c_r;
+	int					c_g;
+	int					c_b;
+	int					f_r;
+	int					f_g;
+	int					f_b;
+	int					color_c;
+	int					color_f;
+	int					x;
+	int					y;
 	unsigned long		max_lenght;
 }	t_vars;
 
@@ -73,7 +73,10 @@ void	free_it(char **p);
 void	ft_check_map(t_vars *s);
 int		new_line_map(char *e);
 void	check_p(t_vars *s);
-//void	fill_map(char *h, char *e, int start_map);
 void	lenght_line(t_vars *s);
+void	player_check(t_vars *s);
+void	check_line(char *h);
+void	init(t_vars *s);
+void	check_texture(char *s);
 
 #endif

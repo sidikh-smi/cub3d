@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:55 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/10 21:54:32 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:19:25 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ void	path_texture(t_vars *s, char *c, char a, int i, int *t)
 			error("dupliquer\n");
 		j = skip_space(j, c);
 		s->path_no = ft_substr(c, j, 100);
+		//check_texture(s->path_no);
 	}
-	else if (a == 'W' && c[i + 1] == 'E' && (c[i + 2] == ' ' || c[i + 2] == '\t'))
+	else if (a == 'W' && c[i + 1] == 'E'
+		&& (c[i + 2] == ' ' || c[i + 2] == '\t'))
 	{
 		if (t[1] == 0)
 			t[1] = 1;
@@ -43,8 +45,10 @@ void	path_texture(t_vars *s, char *c, char a, int i, int *t)
 			error("dupliquer\n");
 		j = skip_space(j, c);
 		s->path_we = ft_substr(c, j, 100);
+		//check_texture(s->path_we);
 	}
-	else if (a == 'S' && c[i + 1] == 'O' && (c[i + 2] == ' ' || c[i + 2] == '\t'))
+	else if (a == 'S' && c[i + 1] == 'O'
+		&& (c[i + 2] == ' ' || c[i + 2] == '\t'))
 	{
 		if (t[2] == 0)
 			t[2] = 1;
@@ -52,8 +56,10 @@ void	path_texture(t_vars *s, char *c, char a, int i, int *t)
 			error("dupliquer\n");
 		j = skip_space(j, c);
 		s->path_so = ft_substr(c, j, 100);
+		//check_texture(s->path_so);
 	}
-	else if (a == 'E' && c[i + 1] == 'A' && (c[i + 2] == ' ' || c[i + 2] == '\t'))
+	else if (a == 'E' && c[i + 1] == 'A'
+		&& (c[i + 2] == ' ' || c[i + 2] == '\t'))
 	{
 		if (t[3] == 0)
 			t[3] = 1;
@@ -61,6 +67,7 @@ void	path_texture(t_vars *s, char *c, char a, int i, int *t)
 			error("dupliquer\n");
 		j = skip_space(j, c);
 		s->path_ea = ft_substr(c, j, 100);
+		//check_texture(s->path_ea);
 	}
 	else
 		error("TExture\n");
@@ -104,27 +111,6 @@ void	textures(t_vars *s)
 	}
 	free(t);
 	s->j = q;
-}
-
-int	new_line_map(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
-		i++;
-	if (str[i] == '1' || str[i] == '0')
-	{
-		return (1);
-	}
-	return (0);
-}
-
-void check_line(char *h)
-{
-	if (h[0] == '\n' || (ft_strlen(h) == 2 && h[1] == '\n'))
-		error("Error\n");
-
 }
 
 void	check(t_vars *s, int fd)
