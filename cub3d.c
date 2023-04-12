@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:32 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/11 14:19:50 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/12 11:59:22 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	check_walls(t_vars *d)
 	int	size;
 
 	s = d->j;
-	size = d->size;
+	size = 0;
+	while (d->map[size])
+		size++;
 	i = 0;
 	while (d->map[s])
 	{
@@ -85,6 +87,9 @@ void	det_error(char *s, t_vars *d)
 	if (fd < 0)
 		error("fd invalid");
 	check(d, fd);
+	textures(d);
+	components_cub(d);
+	check_p(d);
 	check_walls(d);
 	ft_check_map(d);
 	player_check(d);

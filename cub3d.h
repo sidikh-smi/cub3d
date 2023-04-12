@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:11:59 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/11 13:55:42 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/12 11:55:39 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_color{
 typedef struct s_vars{
 	char				**map;
 	int					j;
-	int					size;
+	int					*t;
 	double				position;
 	char				*path_so;
 	char				*path_no;
@@ -78,5 +78,11 @@ void	player_check(t_vars *s);
 void	check_line(char *h);
 void	init(t_vars *s);
 void	check_texture(char *s);
+void	path_north(int *t, int j, char *c, t_vars *s);
+int		skip_space(int j, char *c);
+void	path_south(int *t, int j, char *c, t_vars *s);
+void	path_weast(int *t, int j, char *c, t_vars *s);
+void	path_east(int *t, int j, char *c, t_vars *s);
+void	textures(t_vars *s);
 
 #endif

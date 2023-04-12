@@ -6,7 +6,7 @@
 /*   By: skhaliff <skhaliff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:14:57 by skhaliff          #+#    #+#             */
-/*   Updated: 2023/04/11 13:26:25 by skhaliff         ###   ########.fr       */
+/*   Updated: 2023/04/12 11:33:03 by skhaliff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,14 @@ void	player_check(t_vars *s)
 	}
 }
 
+void	check_map2(t_vars *s, int i, int q)
+{
+	if (!check_char(s->map[i + 1][q]))
+		error("Wallssss\n");
+	if (!check_char(s->map[i - 1][q]))
+		error("Wallsss\n");
+}
+
 void	ft_check_map(t_vars *s)
 {
 	int		i;
@@ -63,12 +71,7 @@ void	ft_check_map(t_vars *s)
 					error("Wall\n");
 				if (q <= ft_strlen(s->map[i + 1])
 					&& q <= ft_strlen(s->map[i - 1]))
-				{
-					if (!check_char(s->map[i + 1][q]))
-						error("Wall\n");
-					if (!check_char(s->map[i - 1][q]))
-						error("Wall\n");
-				}
+					check_map2(s, i, q);
 				else
 					error("map\n");
 			}
